@@ -14,48 +14,56 @@ def mul(x, y):
     ":math:`f(x, y) = x * y`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return x*y
 
 
 def id(x):
     ":math:`f(x) = x`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return x
 
 
 def add(x, y):
     ":math:`f(x, y) = x + y`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return x+y
 
 
 def neg(x):
     ":math:`f(x) = -x`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return -x
 
 
 def lt(x, y):
     ":math:`f(x) =` 1.0 if x is less than y else 0.0"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return 1.0 if x < y else 0.0
 
 
 def eq(x, y):
     ":math:`f(x) =` 1.0 if x is equal to y else 0.0"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return 1.0 if x == y else 0.0
 
 
 def max(x, y):
     ":math:`f(x) =` x if x is greater than y else y"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return x if x > y else y
 
 
 def is_close(x, y):
     ":math:`f(x) = |x - y| < 1e-2` "
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return abs(x - y) < 1e-2
 
 
 def sigmoid(x):
@@ -78,6 +86,7 @@ def sigmoid(x):
     """
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return 1.0 / (1.0 + math.exp(-x))
 
 
 def relu(x):
@@ -94,6 +103,7 @@ def relu(x):
     """
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return x if x > 0 else 0
 
 
 EPS = 1e-6
@@ -113,24 +123,31 @@ def log_back(x, d):
     r"If :math:`f = log` as above, compute d :math:`d \times f'(x)`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    if log(x):
+        return d*1.0/x
 
 
 def inv(x):
     ":math:`f(x) = 1/x`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    return 1/x
 
 
 def inv_back(x, d):
     r"If :math:`f(x) = 1/x` compute d :math:`d \times f'(x)`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    if inv(x):
+        return d*1.0/x**2
 
 
 def relu_back(x, d):
     r"If :math:`f = relu` compute d :math:`d \times f'(x)`"
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
+    if relu(x):
+        return d*1.0/x
 
 
 # ## Task 0.3
@@ -161,7 +178,8 @@ def map(fn):
 def negList(ls):
     "Use :func:`map` and :func:`neg` to negate each element in `ls`"
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    #raise NotImplementedError('Need to implement for Task 0.3')
+    return map(neg, ls)
 
 
 def zipWith(fn):
@@ -181,13 +199,21 @@ def zipWith(fn):
 
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    def zipWith_helper(ls1, ls2):
+        if len(ls1) != len(ls2):
+            raise ValueError('Lists must be the same length')
+        else:
+            return map(lambda x, y: fn(x, y), ls1, ls2)
+    return zipWith_helper()
+    #raise NotImplementedError('Need to implement for Task 0.3')
+
 
 
 def addLists(ls1, ls2):
     "Add the elements of `ls1` and `ls2` using :func:`zipWith` and :func:`add`"
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    
+    #raise NotImplementedError('Need to implement for Task 0.3')
 
 
 def reduce(fn, start):
