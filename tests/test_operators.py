@@ -19,7 +19,7 @@ from minitorch.operators import (
 )
 from hypothesis import given
 from hypothesis.strategies import lists
-from .strategies import small_floats, assert_close
+from tests.strategies import small_floats, assert_close
 import pytest
 from minitorch import MathTest
 
